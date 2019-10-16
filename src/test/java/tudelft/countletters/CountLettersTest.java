@@ -17,4 +17,33 @@ public class CountLettersTest {
         Assertions.assertEquals(1, words);
     }
 
+    @Test
+    public void multipleMatchingWordsR() {
+        int words = new CountLetters().count("catr|dogx");
+        Assertions.assertEquals(2, words);
+    }
+
+    @Test
+    public void lastWordDoesNotMatchR() {
+        int words = new CountLetters().count("catr|dog");
+        Assertions.assertEquals(1, words);
+    }
+
+    @Test
+    public void empty() {
+        int words = new CountLetters().count("");
+        Assertions.assertEquals(0, words);
+    }
+
+    @Test
+    public void lastWordDoesNotMatchNoWordInTheMiddle() {
+        int words = new CountLetters().count("cat|dog");
+        Assertions.assertEquals(0, words);
+    }
+
+    @Test
+    public void multipleMatchingWordsRNoWordInTheMiddle() {
+        int words = new CountLetters().count("cat|dogx");
+        Assertions.assertEquals(1, words);
+    }
 }
